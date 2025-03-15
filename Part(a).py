@@ -11,8 +11,8 @@ from sklearn.metrics import accuracy_score
 from sklearn.model_selection import GridSearchCV
 
 # Paths to dataset
-mask_path = "/home/harsh-d/Desktop/Face-Mask-Detection/dataset/with_mask"
-without_mask_path = "/home/harsh-d/Desktop/Face-Mask-Detection/dataset/without_mask"
+mask_path = "./dataset/with_mask"
+without_mask_path = "./dataset/without_mask"
 
 # Feature extraction function
 def extract_features(img):
@@ -97,3 +97,4 @@ mlp_accuracy = accuracy_score(y_test, y_pred_mlp)
 print(f"Best MLP Parameters: {mlp_grid.best_params_}")
 print(f"MLP Accuracy: {mlp_accuracy:.4f}")
 
+# Binary classification using CNN
