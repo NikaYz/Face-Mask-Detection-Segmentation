@@ -34,7 +34,7 @@ Tuned for hidden layer sizes and iterations.
 
 Achieved an accuracy of 91.3.
 
-Observations
+Observations:
 SVM provided strong results with optimized hyperparameters.
 
 Random Forest performed well, offering a good balance between accuracy and interpretability.
