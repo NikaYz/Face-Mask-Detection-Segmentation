@@ -60,9 +60,28 @@ It has two sections:
 ## Steps taken to achieve each task
 
 ### Feature Extraction
+To extract meaningful features from the dataset, we used Histogram of Oriented Gradients (HOG). 
 
+- **Grayscale Conversion:** Images were first converted to grayscale to reduce complexity and focus on structural features rather than color.
+- **Resizing:** Images were resized to **64x64 pixels** to standardize the input dimensions for the model.
+- **HOG Features:** The HOG method was applied to each image to capture gradient information, which is useful for edge detection and texture patterns. The parameters used were:
+  - **Pixels per cell:** (8, 8)
+  - **Cells per block:** (2, 2)
+  - **Feature vector:** True (flatten the HOG features into a single vector).
+
+This resulted in a vector of features that was then fed into machine learning classifiers.
 
 ### Model training
+
+#### SVM (Support Vector Machine)
+- Used with hyperparameter tuning via GridSearchCV.
+
+#### Random Forest Classifier
+- Optimized using GridSearchCV.
+
+#### Multi-Layer Perceptron (MLP) Neural Network
+- Tuned for hidden layer sizes and iterations.
+
 #### CNN
 Built a **CNN** with **two convolutional layers**, followed by **ReLU activations**, **max pooling**, and **fully connected layers** for classification.  
 
@@ -74,6 +93,22 @@ Trained for **10 epochs**, updating weights after each batch to minimize loss.
 
  
 ## Hyperparameter tuning
+
+#### SVM
+The Support Vector Machine (SVM) classifier was fine-tuned using **GridSearchCV**:
+- **C values:** [0.1, 1, 10] for regularization strength.
+- **Kernel types:** ['linear', 'rbf']
+
+#### Random Forest
+GridSearchCV was used to tune the Random Forest classifier:
+- **Number of estimators:** [50, 100, 200]
+- **Max depth:** [10, 20, None] to control tree depth.
+- **Min samples split:** [2, 5, 10]
+
+#### MLP (Multi-Layer Perceptron)
+We optimized the MLP model by testing different combinations of hidden layer sizes:
+- **Hidden Layer Sizes:** [(64, 32), (128, 64)].
+- **Max iterations:** [300, 500].
 
 ### CNN
 - **Learning rate:** Tested **0.001, 0.0005, 0.0001**, with **0.001** performing the best.  
