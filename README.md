@@ -192,7 +192,13 @@ For a random imag evaluation metric :
 - Among traditional methods, **Region Growing** (with the seed point at the lower middle part of the image) and a **custom segmentation approach** (using inverse and binary thresholding) performed better than other methods.  
 ## Issues Faced  
 
+### Training CNN
+- Hyperparameter tuning was very challenging in training CNN.  
+- It took a lot of time to run the code limiting the exploration of possible improvements in hyperparameters.
+- Ensuring that the model does not overfits, as it is very easy to overfit a CNN.
+
 ### Segmentation Part  
+
 
 #### File Name Mismatch in MSFD Dataset  
 - A naming mismatch in one file within the **face_crop_segmentation** folder caused an **index misalignment** between input and output images from **index 768 onward**.  
